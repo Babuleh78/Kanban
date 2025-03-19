@@ -10,7 +10,6 @@ function App() {
          <Column columnName = "Doing" />
          <Column columnName = "Done" />
          
-         <Sticker />
       </header>
     </div>
   );

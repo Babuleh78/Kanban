@@ -6,7 +6,7 @@ function Sticker(){
         <ul  className='l'>
             <li>
                 <a>
-                    <h2>Title #1</h2>
+                    <h2>План Z</h2>
                      <p >Я Шашура я готов</p>
                 </a>
             </li>

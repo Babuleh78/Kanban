@@ -1,12 +1,11 @@
 
 import "./addBtn.css"
 
-function AddBtn() {
+function AddBtn({ onClick }) { 
   return (
     <div>
-        <button className="addBtn"> ⊕ Добавить </button>
+      <button className="addBtn" onClick={onClick}> ⊕ Добавить </button>
     </div>
   );
 }
-
 export default AddBtn;
