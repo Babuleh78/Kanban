@@ -1,5 +1,5 @@
 
-import './Column.css';
+import './column.css';
 import AddBtn from '../addBtn/addBtn';
 import React from 'react';
 function Column(props) {
