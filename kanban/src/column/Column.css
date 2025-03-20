@@ -4,27 +4,33 @@
     flex-direction: column; 
     align-items: center; 
     margin: 10px; 
+    width: 350px;
+    height: 400px;
   }
 
-  .column-container {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    resize: both; /* Разрешить растягивание */
-    overflow: auto; /* Обязательно для работы resize */
-    min-width: 200px; /* Минимальная ширина */
-    min-height: 100px; /* Минимальная высота */
+  .resizable {
+    border: 3px solid #ccc;
+    
+    resize: both; 
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-width: 250px; 
+    min-height: 200px; 
+    width: 350px;
+    height: 400px;
   }
 .Column {
-    width: 300px; 
-    height: 500px; 
+    width: 95%;
+    height: 95%;
+    margin: 10px;
+    min-width: 200px; 
+    min-height: 150px; 
     background-color: lightgray; 
     border: 2px solid black; 
     border-radius: 10px; 
-    
     overflow-y: scroll; 
     overflow-x: hidden; 
-
+    z-index: 1;
 }
 
 .Column::-webkit-scrollbar {
@@ -41,4 +47,4 @@
     padding: 5px;
     user-select: none;
     
-}
+}   

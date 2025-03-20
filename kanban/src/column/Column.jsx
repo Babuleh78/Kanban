@@ -4,6 +4,8 @@ import AddBtn from '../addBtn/addBtn';
 import Sticker from '../sticker/sticker';
 import React, { useState, useRef  } from 'react';
 function Column(props) {
+  console.log(props)
+  
   const [stickers, setStickers] = useState([])
   const [isDragging, setIsDragging] = useState([])
   const [position, setPosition] = useState([]) // Позиция мыши
@@ -15,25 +17,30 @@ function Column(props) {
     setStickers([...stickers, newItem]);
   };
 
-  const handleMouseDown = (e) => { //Пользователь нажал на мышь
-    if(e.button === 0){
-      return
+  const handleDoubleClick = (e) => {
+    if (e.button === 0) { // Проверяем, что нажата левая кнопка мыши
+      columnRef.current.classList.toggle("resizable"); // Переключаем класс
     }
+  };
+    const handleMouseDown = (e) => { //Пользователь нажал на мышь
+      if(e.button === 0){
+        return;
+      }
     setIsDragging(true)
-    const { pageX, pageY} = e
+    const { clientX, clientY} = e
     const {offsetLeft, offsetTop} = columnRef.current
     setOffset({
-      x: pageX - offsetLeft,
-      y: pageY - offsetTop
+      x: clientX - offsetLeft,
+      y: clientY - offsetTop
     })
   }
 
   const hadleMouseMove = (e) =>{ //Пользователь двигает мышью
     if(isDragging){
-      const{pageX, pageY} = e
+      const{clientX, clientY} = e
 
-      const newX = pageX - offset.x
-      const newY = pageY - offset.y
+      const newX = clientX - offset.x
+      const newY = clientY - offset.y
       setPosition({x: newX, y: newY})
     }
   }
@@ -49,10 +56,10 @@ function Column(props) {
       draggable={isDragging}
       ref = {columnRef}
       style={{
-        position: 'absolute',
+        position: 'sticky',
         left: `${position.x}px`,
         top: `${position.y}px`,
-        cursor: isDragging ? 'grabbing' : 'grab',
+        cursor: isDragging ? 'grabbing' : 'grab'
       }}
 
       onMouseDown={handleMouseDown}
@@ -60,9 +67,12 @@ function Column(props) {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp} 
       onContextMenu={(e) => e.preventDefault()}
-  
+      onDoubleClick={handleDoubleClick}
     >
-      <div className="columnName">{props.columnName}</div>
+      <div className="columnName" onContextMenu={(e) => e.preventDefault()}
+        > {props.columnName}
+        
+      </div>
       <div className="Column">
         <AddBtn onClick={addSticker} />
         {stickers.map((sticker, index) => (

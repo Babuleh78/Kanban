@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -12,14 +13,17 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction:row;
+  flex-direction: row; /* Элементы будут располагаться в строку */
+  align-items: flex-start; /* Выравнивание элементов по верхнему краю */
+  gap: 16px; /* Расстояние между элементами */
+  padding: 16px; /* Отступы внутри контейнера */
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow-x: auto; /* Добавляем горизонтальную прокрутку, если элементы не помещаются */
 }
 
 .App-link {
