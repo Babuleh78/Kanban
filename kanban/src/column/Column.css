@@ -6,7 +6,15 @@
     margin: 10px; 
   }
 
-  
+  .column-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    resize: both; /* Разрешить растягивание */
+    overflow: auto; /* Обязательно для работы resize */
+    min-width: 200px; /* Минимальная ширина */
+    min-height: 100px; /* Минимальная высота */
+  }
 .Column {
     width: 300px; 
     height: 500px; 
@@ -31,5 +39,6 @@
     margin: 5px;
     width: 140px;
     padding: 5px;
+    user-select: none;
     
 }
