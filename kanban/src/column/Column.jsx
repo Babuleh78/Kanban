@@ -26,6 +26,7 @@ function Column(props) {
       if(e.button === 0){
         return;
       }
+      console.log("Есть колумн")
     setIsDragging(true)
     const { clientX, clientY} = e
     const {offsetLeft, offsetTop} = columnRef.current
